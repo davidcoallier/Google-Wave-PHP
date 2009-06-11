@@ -2,7 +2,7 @@
 namespace echolibre\google_wave\Model;
 
 /**
- * WaveletData class
+ * BlipData class
  *
  *
  * See the link lower for more reference.
@@ -13,12 +13,12 @@ namespace echolibre\google_wave\Model;
  * @version 0.1.0
  * @license LGPL 
  */
-class WaveletData
+class BlipData
 {
     /**
      * The google wave api class
      */
-    const JAVA_CLASS = 'com.google.wave.api.impl.WaveletData';
+    const JAVA_CLASS = 'com.google.wave.api.impl.BlipData';
     
     /**
      * A private collection of variables used in the magic setters and getters.
@@ -28,22 +28,24 @@ class WaveletData
     private $variables = array();
     
     /** 
-     * WaveletData Constructor
+     * BlipData Constructor
      *
      * This constructor initializes the variables needed by the object.
      */
     public function __construct()
     {
-        $this->creator = null;
-        $this->creationTime = 0;
-        $this->dataDocuments = new \stdClass();
+        $this->annotations      = array();
+        $this->blipId           = null;
+        $this->childBlipIds     = array();
+        $this->content          = '';
+        $this->contributors     = array();
+        $this->creator          = null;
+        $this->elements         = new \stdClass();
         $this->lastModifiedTime = 0;
-        $this->participants = new \ArrayIterator();
-        $this->rootBlipId = null;
-        $this->title = 'f';
-        $this->version = 0;
-        $this->waveId = null;
-        $this->waveletId = null;
+        $this->parentBlipId     = null;
+        $this->version          = -1;
+        $this->waveId           = null;
+        $this->waveletId        = null;
     }
     
     /**
@@ -57,7 +59,7 @@ class WaveletData
     /**
      * Magic Getter
      */
-    public function __get($key) 
+    public function __get($key)
     {
         if (isset($this->variables[$key])) {
             return $this->variables[$key];
