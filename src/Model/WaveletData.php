@@ -38,7 +38,7 @@ class WaveletData
         $this->creationTime = 0;
         $this->dataDocuments = new \stdClass();
         $this->lastModifiedTime = 0;
-        $this->participants = new \ArrayIterator();
+        $this->participants = new \ArrayObject();
         $this->rootBlipId = null;
         $this->title = 'f';
         $this->version = 0;

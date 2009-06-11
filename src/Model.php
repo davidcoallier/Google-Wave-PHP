@@ -21,6 +21,8 @@ const ROOT_WAVELET_ID_SUFFIX = '!conv+root';
  * @license LGPL 
  * @uses    \echolibre\google_wave\Model\Event
  * @uses    \echolibre\google_wave\Model\WaveletData
+ * @uses    \echolibre\google_wave\Model\BlipData
+ * @uses    \echolibre\google_wave\Document\Range
  */
 abstract class AbstractModel
 {
@@ -78,5 +80,48 @@ abstract class AbstractModel
         $waveletData->waveleyId        = $data['waveletId'];
 
         return $waveletData;
+    }
+    
+    /**
+     * Create a blip data 
+     *
+     * This method will create a blip data and return it's
+     * object with the range, annotations, contributors, etc
+     * all set already.
+     *
+     * @param array $data  The array of data associated to a blipData object.
+     *
+     * @return \echolibre\google_wave\model\BlipData $blipDate  
+     *         The Model\BlipData object.
+     */
+    public static function createBlipData(array $data)
+    {
+        $blipData = new \echolibre\google_wave\Model\BlipData;
+        $blipData->annotations = new \ArrayObject();
+        
+        foreach ($data['annotations'] as $annotation) {
+            $tmpRange = \echolibre\google_wave\Document\Range($annotation['range']['start'], 
+                                                              $annotation['range']['end']);
+                                                              
+            $blipData->annotations->append(
+                new \echolibre\google_wave\Document\Annotation(
+                    $annotation['name'], $annotation['value'], $tmpRange
+                )
+            );
+        }
+        
+        $blipData->childBlipIds     = new \ArrayObject($data['childBlipIds']);
+        $blipData->content          = $data['content'];
+        $blipData->contributors     = new \ArrayObject($data['contributors']);
+        $blipData->creator          = $data['creator'];
+        $blipData->elements         = $data['elements'];
+        $blipData->lastModifiedTime = $data['lastModifiedTime'];
+        $blipData->parentBlipId     = $data['parentBlipId'];
+        $blipData->blipId           = $data['blipId'];
+        $blipData->version          = $data['version'];
+        $blipData->waveId           = $data['waveId'];
+        $blipData->waveletId        = $data['waveletId'];
+
+        return $blipData;
     }
 }

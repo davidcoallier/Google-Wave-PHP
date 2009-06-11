@@ -34,11 +34,11 @@ class BlipData
      */
     public function __construct()
     {
-        $this->annotations      = array();
+        $this->annotations      = new \ArrayObject();
         $this->blipId           = null;
-        $this->childBlipIds     = array();
+        $this->childBlipIds     = new \ArrayObject();
         $this->content          = '';
-        $this->contributors     = array();
+        $this->contributors     = new \ArrayObject();
         $this->creator          = null;
         $this->elements         = new \stdClass();
         $this->lastModifiedTime = 0;
