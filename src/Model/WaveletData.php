@@ -36,11 +36,11 @@ class WaveletData
     {
         $this->creator = null;
         $this->creationTime = 0;
-        $this->dataDocuments = new \stdClass();
+        $this->dataDocuments = array();
         $this->lastModifiedTime = 0;
         $this->participants = new \ArrayObject();
         $this->rootBlipId = null;
-        $this->title = 'f';
+        $this->title = '';
         $this->version = 0;
         $this->waveId = null;
         $this->waveletId = null;

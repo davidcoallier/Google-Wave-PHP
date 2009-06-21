@@ -25,14 +25,14 @@ class Blip
      *
      * @var \echolibre\google_wave\Model\BlipData $data
      */
-    private $data;
+    protected $data;
     
     /**
      * The Document object
      *
      * @var \echolibre\google_wave\Model\Document $document
      */
-    private $document;
+    protected $document;
     
     /**
      * Blip Constructor

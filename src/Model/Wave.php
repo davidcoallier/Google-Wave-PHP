@@ -1,7 +1,7 @@
 <?php
 namespace echolibre\google_wave\Model;
 
-use echolibre\google_wave\WaveData as WaveData;
+use echolibre\google_wave\Model\WaveData as WaveData;
 
 /**
  * Wave class
@@ -23,7 +23,7 @@ class Wave
      *
      * @var \echolibre\google_wave\Model\WaveData $data
      */
-    private $data;
+    protected $data;
     
     /**
      * Wave Constructor

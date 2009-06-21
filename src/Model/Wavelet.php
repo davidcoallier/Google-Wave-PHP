@@ -23,7 +23,7 @@ class Wavelet
      *
      * @var \echolibre\google_wave\Model\WaveletData $data
      */
-    private $data;
+    protected $data;
     
     /**
      * Wavelet constructor

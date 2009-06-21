@@ -2,6 +2,7 @@
 
 namespace echolibre\google_wave\Operations;
 
+use \echolibre\google_wave\Model\Blip as Blip;
 use \echolibre\google_wave\Model\Document as Document;
 use \echolibre\google_wave\Operations\Context as Context;
 
@@ -27,15 +28,28 @@ class BasedDocument extends Document
     /**
      * Constructor
      *
-     * Create a new BasedWave object. This object generates operations.
+     * Create a new BasedDocument object. This object generates operations.
      *
-     * @param WaveData $data  The wave data
+     * @param Blip $data  The Blip object
      * @param Context  $context The context instance.
      */
-    public function __construct(WaveData $data, Context $context)
+    public function __construct(Blip $data, Context $context)
     {
         parent::__construct($data);
         $this->_context = $context;
+    }
+    
+    public function hasAnnotation($name)
+    {
+        $annotationIterator = $this->annotation->getIterator();
+        
+        foreach ($annotationIterator->rewind(); $annotationIterator->valid(); $annotationIterator->next()) {
+            if ($annotationIterator->current() == $name) {
+                return true;
+            }
+        }
+        
+        return false;
     }
     
     

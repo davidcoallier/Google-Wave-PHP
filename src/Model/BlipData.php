@@ -40,7 +40,7 @@ class BlipData
         $this->content          = '';
         $this->contributors     = new \ArrayObject();
         $this->creator          = null;
-        $this->elements         = new \stdClass();
+        $this->elements         = array();
         $this->lastModifiedTime = 0;
         $this->parentBlipId     = null;
         $this->version          = -1;
