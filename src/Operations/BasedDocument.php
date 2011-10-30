@@ -17,7 +17,7 @@ use \echolibre\google_wave\Document\Range as Range;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Model\WaveData
  * @uses    \echolibre\google_wave\Model\Wave
  * @uses    \echolibre\google_wave\Operations\Context
@@ -25,7 +25,7 @@ use \echolibre\google_wave\Document\Range as Range;
 class BasedDocument extends Document
 {
     private $_context;
-    
+
     /**
      * Constructor
      *
@@ -39,7 +39,7 @@ class BasedDocument extends Document
         parent::__construct($data);
         $this->_context = $context;
     }
-    
+
     /**
      * Has Annotation
      *
@@ -51,7 +51,7 @@ class BasedDocument extends Document
     public function hasAnnotation($name)
     {
         $annotationIterator = $this->annotations->getIterator();
-        
+
         foreach ($annotationIterator->rewind(); $annotationIterator->valid(); $annotationIterator->next()) {
             // I want $it->current()['name']; .. patch accepted? yeah yeah...
             $current = $it->current();
@@ -59,33 +59,33 @@ class BasedDocument extends Document
                 return true;
             }
         }
-        
+
         return false;
     }
-    
+
     /**
      * Ranges for Annotation
      *
      * This does like "hasAnnotation" but returns the range of the found
      * annotation.
-     * 
+     *
      * @param string $name  The name of the annotation to find.
      * @return mixed Either a Range ArrayObject or false if nothing is found.
      */
     public function rangesForAnnotation($name)
     {
         $annotationIterator = $this->annotations->getIterator();
-        
+
         foreach ($annotationIterator->rewind(); $annotationIterator->valid(); $annotationIterator->next()) {
             $current = $it->current();
             if ($current['name'] == $name) {
                 return $current['range'];
             }
         }
-        
+
         return false;
     }
-    
+
     /**
      * Set the text in document
      *
@@ -97,14 +97,14 @@ class BasedDocument extends Document
     public function setText($text)
     {
         $this->clear();
-        
+
         $this->_context->builder->insertDocument(
             $this->waveId, $this->waveletId, $this->blipId, $text
         );
-        
+
         $this->blip->content = $text;
     }
-    
+
     /**
      * Set the text in range
      *
@@ -119,7 +119,7 @@ class BasedDocument extends Document
         $this->deleteRange($range);
         $this->insertText($range->start, $text);
     }
-    
+
     /**
      * Insert text
      *
@@ -137,12 +137,12 @@ class BasedDocument extends Document
 
         $left  = substr($this->blip->content, 0, $start);
         $right = substr($this->blip->content, $start, sizeof($this->blip->content) - 1);
-        
+
         $this->blip->content = $left . $text . $right;
     }
-    
+
     /**
-     * Append text 
+     * Append text
      *
      * Append some text to the content of a blip.
      *
@@ -154,10 +154,10 @@ class BasedDocument extends Document
         $this->_content->builder->appendDocument(
             $this->waveId, $this->waveletId, $this->blipId, $text
         );
-        
+
         $this->blip->content += $text;
     }
-    
+
     /**
      * Clear a document
      *
@@ -168,31 +168,31 @@ class BasedDocument extends Document
     public function clear()
     {
         $this->_context->builder->documentDelete(
-            $this->waveId, $this->waveletId, 
+            $this->waveId, $this->waveletId,
             $this->blipId, 0, count($this->blip->content)
         );
-        
+
         $this->blip->content = '';
     }
-    
+
     /**
      * Delete Range
      *
      * This method is used to delete a range of values
      *
-     * @param Range $range  The range 
+     * @param Range $range  The range
      * @return void
      */
     public function deleteRange(Range $range)
     {
         $this->_context->builder->deleteDocument(
-            $this->waveId, $this->waveletId, 
-            $this->blipId, $range->start, $range->end            
+            $this->waveId, $this->waveletId,
+            $this->blipId, $range->start, $range->end
         );
-        
+
         $left = substr($this->blip->content, 0, $range->start);
         $right = substr($this->blip->content, $range->start, $range->end);
-        
+
         $this->blip->content = $left . $right;
     }
 }

@@ -16,7 +16,7 @@ use \echolibre\google_wave\Operations\Context as Context;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Model\WaveData
  * @uses    \echolibre\google_wave\Model\Wave
  * @uses    \echolibre\google_wave\Operations\Context
@@ -24,7 +24,7 @@ use \echolibre\google_wave\Operations\Context as Context;
 class BasedWave extends Wave
 {
     private $_context;
-    
+
     /**
      * Constructor
      *
@@ -38,7 +38,7 @@ class BasedWave extends Wave
         parent::__construct($data);
         $this->_context = $context;
     }
-    
+
     /**
      * Create a wavelet
      *

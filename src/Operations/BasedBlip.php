@@ -17,7 +17,7 @@ use \echolibre\google_wave\Operations\BasedDocument as BasedDocument;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Model\Blip
  * @uses    \echolibre\google_wave\Model\BlipData
  * @uses    \echolibre\google_wave\Operations\Context
@@ -26,7 +26,7 @@ use \echolibre\google_wave\Operations\BasedDocument as BasedDocument;
 class BasedBlip extends Blip
 {
     private $_context;
-    
+
     /**
      * Constructor
      *
@@ -40,7 +40,7 @@ class BasedBlip extends Blip
         parent::__construct($data, new BasedDocument($data, $context));
         $this->_context = $context;
     }
-    
+
     /**
      * Create a child blip
      *
@@ -53,10 +53,10 @@ class BasedBlip extends Blip
         $blipData = $this->_context->builder->createBlipChild(
             $this->waveId, $this->waveletId, $this->blipId
         );
-        
+
         return $this->_context->addBlip($blipData);
     }
-    
+
     /**
      * Delete a blip
      *
@@ -69,7 +69,7 @@ class BasedBlip extends Blip
         $this->_context->builder->deleteBlip(
             $this->waveId, $this->waveletId, $this->blipId
         );
-        
+
         return $this->_context->deleteBlip($this->blipId);
     }
 }

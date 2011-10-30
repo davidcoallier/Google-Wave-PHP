@@ -2,7 +2,7 @@
 
 namespace echolibre\google_wave\Model;
 
-/** 
+/**
  * The root wavelet id suffix. Taken from the python library.
  */
 const ROOT_WAVELET_ID_SUFFIX = '!conv+root';
@@ -18,7 +18,7 @@ const ROOT_WAVELET_ID_SUFFIX = '!conv+root';
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Model\Event
  * @uses    \echolibre\google_wave\Model\WaveletData
  * @uses    \echolibre\google_wave\Model\BlipData
@@ -39,19 +39,19 @@ abstract class AbstractModel
     public static function createEvent(array $data)
     {
         $event = new \echolibre\google_wave\Model\Event;
-        
+
         $event->type       = $data['type'];
         $event->timestamp  = $data['timestamp'];
         $event->modifiedBy = $data['modifiedBy'];
         $event->properties = new \stdClass();
-        
+
         if (isset($data['properties'])) {
             $event->properties = $data['properties'];
         }
-        
+
         return $event;
     }
-    
+
     /**
      * Create a wavelet data
      *
@@ -61,13 +61,13 @@ abstract class AbstractModel
      *
      * @param array $data  The data to set the new object with.
      *
-     * @return \echolibre\google_wave\model\WaveletData $waveletData  
+     * @return \echolibre\google_wave\model\WaveletData $waveletData
      *         The Model\WaveletData object.
      */
     public static function createWaveletData(array $data)
     {
         $waveletData = new \echolibre\google_wave\Model\WaveletData;
-        
+
         $waveletData->creator          = $data['creator'];
         $waveletData->creationTime     = $data['creationTime'];
         $waveletData->dataDocuments    = $data['dataDocuments'];
@@ -81,9 +81,9 @@ abstract class AbstractModel
 
         return $waveletData;
     }
-    
+
     /**
-     * Create a blip data 
+     * Create a blip data
      *
      * This method will create a blip data and return it's
      * object with the range, annotations, contributors, etc
@@ -91,25 +91,25 @@ abstract class AbstractModel
      *
      * @param array $data  The array of data associated to a blipData object.
      *
-     * @return \echolibre\google_wave\model\BlipData $blipDate  
+     * @return \echolibre\google_wave\model\BlipData $blipDate
      *         The Model\BlipData object.
      */
     public static function createBlipData(array $data)
     {
         $blipData = new \echolibre\google_wave\Model\BlipData;
         $blipData->annotations = new \ArrayObject();
-        
+
         foreach ($data['annotations'] as $annotation) {
-            $tmpRange = \echolibre\google_wave\Document\Range($annotation['range']['start'], 
+            $tmpRange = \echolibre\google_wave\Document\Range($annotation['range']['start'],
                                                               $annotation['range']['end']);
-                                                              
+
             $blipData->annotations->append(
                 new \echolibre\google_wave\Document\Annotation(
                     $annotation['name'], $annotation['value'], $tmpRange
                 )
             );
         }
-        
+
         $blipData->childBlipIds     = new \ArrayObject($data['childBlipIds']);
         $blipData->content          = $data['content'];
         $blipData->contributors     = new \ArrayObject($data['contributors']);

@@ -12,29 +12,29 @@ namespace echolibre\google_wave\Document;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  */
-class Element 
+class Element
 {
     /**
      * The google wave api class
      */
     const JAVA_CLASS = 'com.google.wave.api.Element';
-    
+
     /**
      * The type of element we are creating.
      *
      * @var string $type The element type
      */
     public $type;
-    
+
     /**
      * A private collection of variables used in the magic setters and getters.
      *
      * @var array $variables  The class properties really.
      */
     private $variables = array();
-    
+
     /**
      * Element Constructor
      *
@@ -51,7 +51,7 @@ class Element
             $this->$key = $value;
         }
     }
-    
+
     /**
      * Magic setter
      */
@@ -59,7 +59,7 @@ class Element
     {
         $this->variables[$key] = $value;
     }
-    
+
     /**
      * Magic getter
      */
@@ -68,7 +68,7 @@ class Element
         if (isset($this->variables[$key])) {
             return $this->variables[$key];
         }
-        
+
         return false;
     }
 }

@@ -14,7 +14,7 @@ use echolibre\google_wave\Document\AbstractDocument as AbstractDocument;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Document\Element
  * @uses    \echolibre\google_wave\Document\AbstractDocument
  */
@@ -24,7 +24,7 @@ class Gadget extends \echolibre\google_wave\Document\Element
      * The google wave api class
      */
     const JAVA_CLASS = 'com.google.wave.api.Gadget';
-    
+
     /**
      * Gadget Element Constructor
      *

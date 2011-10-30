@@ -12,7 +12,7 @@ use echolibre\google_wave\Model\BlipData as BlipData;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Model\BlipData
  */
 class Document
@@ -23,7 +23,7 @@ class Document
      * @var \echolibre\google_wave\Model\BlipData $data
      */
     private $data;
-    
+
     /**
      * Document Constructor
      *
@@ -35,7 +35,7 @@ class Document
     {
         $this->data = $data;
     }
-    
+
     /**
      * Get the text content
      *

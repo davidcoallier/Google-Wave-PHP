@@ -16,7 +16,7 @@ use \echolibre\google_wave\Operations\Context as Context;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Model\WaveletData
  * @uses    \echolibre\google_wave\Model\Wavelet
  * @uses    \echolibre\google_wave\Operations\Context
@@ -24,7 +24,7 @@ use \echolibre\google_wave\Operations\Context as Context;
 class BasedWavelet extends Wavelet
 {
     private $_context;
-    
+
     /**
      * Constructor
      *
@@ -51,11 +51,11 @@ class BasedWavelet extends Wavelet
         $blipData = $this->_context->builder->appendWaveletBlip(
             $this->waveId, $this->waveletId
         );
-        
+
         return $this->_context->addBlip($blipData);
     }
-    
-    /** 
+
+    /**
      * Add a participant
      *
      * Add a participant to a wavelet
@@ -68,10 +68,10 @@ class BasedWavelet extends Wavelet
         $this->_context->builder->addWaveletParticipant(
             $this->waveId, $this->waveletId, $participantId
         );
-        
+
         $this->participants->append($participantId);
     }
-    
+
     /**
      * Remove a wavelet
      *
@@ -83,8 +83,8 @@ class BasedWavelet extends Wavelet
     {
         $this->_context->builder->waveletRemove($this->waveId, $this->waveletId);
     }
-    
-    /** 
+
+    /**
      * Set the data document
      *
      * This method is used to set the wavelet data document
@@ -98,10 +98,10 @@ class BasedWavelet extends Wavelet
         $this->_context->builder->setWaveletDataDoc(
             $this->waveId, $this->waveletId, $name, $data
         );
-        
+
         $this->_data->dataDocuments[$name] = $data;
     }
-    
+
     /**
      * Set the title
      *
@@ -115,7 +115,7 @@ class BasedWavelet extends Wavelet
         $this->_context->builder->setWaveletTitle(
             $this->waveId, $this->waveletId, $title
         );
-        
+
         $this->_data->title = $title;
     }
 }
