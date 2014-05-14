@@ -13,7 +13,7 @@ use echolibre\google_wave\Model\WaveletData as WaveletData;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Model\WaveletData
  */
 class Wavelet
@@ -24,7 +24,7 @@ class Wavelet
      * @var \echolibre\google_wave\Model\WaveletData $data
      */
     protected $data;
-    
+
     /**
      * Wavelet constructor
      *
@@ -36,7 +36,7 @@ class Wavelet
     {
         $this->data = $data;
     }
-    
+
     /**
      * Magic Getter
      */
@@ -45,7 +45,7 @@ class Wavelet
         if ($this->data->{$key} !== false) {
             return $this->data->{$key};
         }
-        
+
         return false;
     }
 }

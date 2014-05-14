@@ -12,7 +12,7 @@ namespace echolibre\google_wave\Document;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Document\Element
  */
 class FormElement extends \echolibre\google_wave\Document\Element
@@ -21,7 +21,7 @@ class FormElement extends \echolibre\google_wave\Document\Element
      * The google wave api class
      */
     const JAVA_CLASS = 'com.google.wave.api.FormElement';
-    
+
     /**
      * FormElement Constructor
      *
@@ -35,7 +35,7 @@ class FormElement extends \echolibre\google_wave\Document\Element
      * @param string $defaultValue The default value of that new element
      * @param string $label        The label of that new element
      */
-    public function __construct($elementType, $name, 
+    public function __construct($elementType, $name,
                                 $value = '', $defaultValue = '', $label = '')
     {
         parent::__construct($elementType, array(

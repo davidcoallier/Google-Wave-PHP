@@ -13,7 +13,7 @@ use echolibre\google_wave\Document\StringEnum as StringEnum;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Document\StringEnum
  */
 abstract class AbstractDocument

@@ -11,7 +11,7 @@ namespace echolibre\google_wave\Model;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  */
 class BlipData
 {
@@ -19,15 +19,15 @@ class BlipData
      * The google wave api class
      */
     const JAVA_CLASS = 'com.google.wave.api.impl.BlipData';
-    
+
     /**
      * A private collection of variables used in the magic setters and getters.
      *
      * @var array $variables  The class properties really.
      */
     private $variables = array();
-    
-    /** 
+
+    /**
      * BlipData Constructor
      *
      * This constructor initializes the variables needed by the object.
@@ -47,7 +47,7 @@ class BlipData
         $this->waveId           = null;
         $this->waveletId        = null;
     }
-    
+
     /**
      * Magic Setter
      */
@@ -55,7 +55,7 @@ class BlipData
     {
         $this->variables[$key] = $value;
     }
-    
+
     /**
      * Magic Getter
      */
@@ -64,7 +64,7 @@ class BlipData
         if (isset($this->variables[$key])) {
             return $this->variables[$key];
         }
-        
+
         return false;
     }
 }

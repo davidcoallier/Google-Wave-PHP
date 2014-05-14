@@ -11,7 +11,7 @@ namespace echolibre\google_wave\Model;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  */
 class WaveData
 {
@@ -21,9 +21,9 @@ class WaveData
      * @var integer $id  Default null
      */
     public $id         = null;
-    
+
     /**
-     * Wavelets ids 
+     * Wavelets ids
      *
      * @var array $waveletIds A list of wavelet ids
      */

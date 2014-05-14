@@ -12,7 +12,7 @@ namespace echolibre\google_wave\Document;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  */
 class StringEnum
 {
@@ -22,8 +22,8 @@ class StringEnum
      * @var array $values
      */
     private $values;
-    
-    /** 
+
+    /**
      * StringEnum Constructor
      *
      * This method builds a list of enum values
@@ -37,8 +37,8 @@ class StringEnum
             $this->values[$value] = $value;
         }
     }
-    
-    /** 
+
+    /**
      * Magic getters.
      */
     public function __get($key)
@@ -46,7 +46,7 @@ class StringEnum
         if (isset($this->values[$key])) {
             return $this->values[$key];
         }
-        
+
         return false;
     }
 }

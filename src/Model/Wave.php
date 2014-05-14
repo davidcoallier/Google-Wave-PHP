@@ -13,7 +13,7 @@ use echolibre\google_wave\Model\WaveData as WaveData;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Model\WaveData
  */
 class Wave
@@ -24,7 +24,7 @@ class Wave
      * @var \echolibre\google_wave\Model\WaveData $data
      */
     protected $data;
-    
+
     /**
      * Wave Constructor
      *
@@ -36,7 +36,7 @@ class Wave
     {
         $this->data = $data;
     }
-    
+
     /**
      * Get the id of the Wave
      *
@@ -46,7 +46,7 @@ class Wave
     {
         return $this->data->id;
     }
-    
+
     /**
      * Get the ids of the wavelets
      *

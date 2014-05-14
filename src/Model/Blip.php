@@ -14,7 +14,7 @@ use echolibre\google_wave\Model\Document as Document;
  * @author  David Coallier <david@echolibre.com>
  * @package echolibre\google_wave
  * @version 0.1.0
- * @license LGPL 
+ * @license LGPL
  * @uses    \echolibre\google_wave\Model\BlipData
  * @uses    \echolibre\google_wave\Model\Document
  */
@@ -26,14 +26,14 @@ class Blip
      * @var \echolibre\google_wave\Model\BlipData $data
      */
     protected $data;
-    
+
     /**
      * The Document object
      *
      * @var \echolibre\google_wave\Model\Document $document
      */
     protected $document;
-    
+
     /**
      * Blip Constructor
      *
@@ -47,8 +47,8 @@ class Blip
         $this->data     = $data;
         $this->document = $document;
     }
-    
-    /** 
+
+    /**
      * Magic Getter
      */
     public function __get($key)
@@ -59,20 +59,20 @@ class Blip
                 return $this->document->{$key};
             }
         }
-        
+
         if ($this->data->{$key} !== false) {
             return $this->data->{$key};
         }
-        
+
         return false;
     }
-    
+
     /**
      * Is root?
      *
      * Is this the same as it's parent thus the root?
      *
-     * @return bool if parentBlipId is null. 
+     * @return bool if parentBlipId is null.
      */
     public function isRoot()
     {
